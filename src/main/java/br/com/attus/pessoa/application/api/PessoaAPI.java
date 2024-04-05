@@ -12,6 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 public interface PessoaAPI {
 	@PostMapping
 	@ResponseStatus(code = HttpStatus.CREATED)
-	PessoaResponse postPessoa(@RequestBody PessoaRequest pessoarequest);
+	PessoaResponse postPessoa(@RequestBody PessoaRequest pessoaRequest);
 
 }
