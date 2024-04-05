@@ -4,6 +4,6 @@ import br.com.attus.pessoa.application.api.PessoaRequest;
 import br.com.attus.pessoa.application.api.PessoaResponse;
 
 public interface PessoaService {
-	PessoaResponse criaPessoa(PessoaRequest pessoarequest);
+	PessoaResponse criaPessoa(PessoaRequest pessoaRequest);
 
 }
