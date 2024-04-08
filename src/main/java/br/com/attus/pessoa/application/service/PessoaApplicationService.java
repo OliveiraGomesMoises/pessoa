@@ -4,8 +4,8 @@ import org.springframework.stereotype.Service;
 
 import br.com.attus.pessoa.application.api.PessoaRequest;
 import br.com.attus.pessoa.application.api.PessoaResponse;
-import br.com.attus.pessoa.application.repository.PessoaRepository;
 import br.com.attus.pessoa.domain.Pessoa;
+import br.com.attus.pessoa.infra.PessoaRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -21,9 +21,7 @@ public class PessoaApplicationService implements PessoaService {
 		log.info("[inicia] PessoaApplicationService - criaPessoa");
 		Pessoa pessoa = pessoaRepository.salva(new Pessoa(pessoaRequest));
 		log.info("[finaliza] PessoaApplicationService - criaPessoa");
-		return PessoaResponse.builder()
-				.idPessoa(pessoa.getIdPessoa())
-				.build();
+		return PessoaResponse.builder().idPessoa(pessoa.getIdPessoa()).build();
 	}
 
 }

@@ -1,4 +1,4 @@
-package br.com.attus.pessoa.application.repository;
+package br.com.attus.pessoa.infra;
 
 import br.com.attus.pessoa.domain.Pessoa;
 
