@@ -1,5 +1,7 @@
 package br.com.attus.pessoa.infra;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import br.com.attus.pessoa.domain.Pessoa;
@@ -21,9 +23,12 @@ public class PessoaInfraRepository implements PessoaRepository {
 		return pessoa;
 	}
 
-	private void save(Pessoa pessoa) {
-		// TODO Auto-generated method stub
-
+	@Override
+	public List<Pessoa> buscaToadasPessoas() {
+		log.info("[inicia]PessoaInfraRepository - buscaToadasPessoas");
+		List<Pessoa> todaspessoas = pessoaSpringDataJPARepository.findAll();
+		log.info("[finaliza]PessoaInfraRepository - buscaToadasPessoas");
+		return todaspessoas;
 	}
 
 }
