@@ -1,5 +1,7 @@
 package br.com.attus.pessoa.application.api;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.attus.pessoa.application.service.PessoaService;
@@ -18,6 +20,13 @@ public class PessoaController implements PessoaAPI {
 		PessoaResponse pessoaCriado = pessoaService.criaPessoa(pessoaRequest);
 		log.info("[finaliza] PessoaController - postPessoa");
 		return pessoaCriado;
+	}
+
+	@Override
+	public List<PessoaListResponse> getTodasPessoas() {
+		log.info("[inicia] PessoaController - getTodasPessoas");
+		log.info("[finaliza] PessoaController - getTodasPessoas");
+		return null;
 	}
 
 }
