@@ -3,17 +3,27 @@ package br.com.attus.pessoa.application.api;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import br.com.attus.pessoa.domain.Pessoa;
-
+import lombok.Value;
+@Value
 public class PessoaListResponse {
 	private UUID idPessoa;
 	private String nomeCompleto;
 	private LocalDate dataDeNascimento;
 	
 	public static List<PessoaListResponse> convert(List<Pessoa> pessoas) {
-		// TODO Auto-generated method stub
-		return null;
+		return pessoas.stream()
+				.map(PessoaListResponse::new)
+				.collect(Collectors.toList());
 	}
+
+	public PessoaListResponse(Pessoa pessoa) {
+		this.idPessoa = pessoa.getIdPessoa();
+		this.nomeCompleto = pessoa.getNomeCompleto();
+		this.dataDeNascimento = pessoa.getDataDeNascimento();
+	}
+	
 
 }
