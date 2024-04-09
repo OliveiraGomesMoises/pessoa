@@ -1,6 +1,7 @@
 package br.com.attus.pessoa.application.api;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,5 +30,15 @@ public class PessoaController implements PessoaAPI {
 		log.info("[finaliza] PessoaController - getTodasPessoas");
 		return pessoas;
 	}
+
+	@Override
+	public PessoaDetalhadoResponse getPessoasAtravesId(UUID idPessoa) {
+		log.info("[inicia] PessoaController - getPessoasAtravesId");
+		log.info("[idPessoa]{}",idPessoa);
+		log.info("[inicia] PessoaController - getPessoasAtravesId");
+		return null;
+	}
+
+	
 
 }
