@@ -1,9 +1,11 @@
 package br.com.attus.pessoa.application.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import br.com.attus.pessoa.application.api.PessoaDetalhadoResponse;
 import br.com.attus.pessoa.application.api.PessoaListResponse;
 import br.com.attus.pessoa.application.api.PessoaRequest;
 import br.com.attus.pessoa.application.api.PessoaResponse;
@@ -33,6 +35,13 @@ public class PessoaApplicationService implements PessoaService {
 		List<Pessoa> pessoas = pessoaRepository.buscaToadasPessoas();
 		log.info("[finaliza] PessoaApplicationService - buscaTodasPessoas");
 		return PessoaListResponse.convert(pessoas);
+	}
+
+	@Override
+	public PessoaDetalhadoResponse buscaPessoaAtravesDoId(UUID idPessoa) {
+		log.info("[inicia] PessoaApplicationService - buscaPessoaAtravesDoId");
+		log.info("[finaliza] PessoaApplicationService - buscaPessoaAtravesDoId");
+		return null;
 	}
 
 }
