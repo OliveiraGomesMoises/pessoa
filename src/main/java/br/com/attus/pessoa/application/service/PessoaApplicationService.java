@@ -40,8 +40,9 @@ public class PessoaApplicationService implements PessoaService {
 	@Override
 	public PessoaDetalhadoResponse buscaPessoaAtravesDoId(UUID idPessoa) {
 		log.info("[inicia] PessoaApplicationService - buscaPessoaAtravesDoId");
+		Pessoa pessoa = pessoaRepository.buscaPessoaAtravesDoId(idPessoa);
 		log.info("[finaliza] PessoaApplicationService - buscaPessoaAtravesDoId");
-		return null;
+		return new PessoaDetalhadoResponse(pessoa);
 	}
 
 }
