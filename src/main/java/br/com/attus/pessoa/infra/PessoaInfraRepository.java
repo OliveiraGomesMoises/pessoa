@@ -3,9 +3,11 @@ package br.com.attus.pessoa.infra;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
 import br.com.attus.pessoa.domain.Pessoa;
+import br.com.attus.pessoa.handler.APIException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -36,7 +38,7 @@ public class PessoaInfraRepository implements PessoaRepository {
 	public Pessoa buscaPessoaAtravesDoId(UUID idPessoa) {
 		log.info("[inicia]PessoaInfraRepository - buscaPessoaAtravesDoId");
 		Pessoa pessoa = pessoaSpringDataJPARepository.findByIdPessoa(idPessoa)
-				.orElseThrow(()-> new RuntimeException("Cliente Não Econtrado!"));
+				.orElseThrow(()-> APIException.build(HttpStatus.NOT_FOUND, "Pessoa não Encontrada!"));
 		log.info("[finaliza]PessoaInfraRepository - buscaPessoaAtravesDoId");
 		return pessoa;
 	}
