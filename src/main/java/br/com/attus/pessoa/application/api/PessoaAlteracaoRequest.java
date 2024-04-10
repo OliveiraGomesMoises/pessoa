@@ -7,8 +7,8 @@ import java.util.UUID;
 import org.springframework.lang.NonNull;
 
 import br.com.attus.pessoa.domain.Endereco;
-import jakarta.validation.constraints.NotBlank;
-
+import lombok.Value;
+@Value
 public class PessoaAlteracaoRequest {
 	private UUID idPessoa;
 	private String nomeCompleto;

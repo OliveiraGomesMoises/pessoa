@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 import org.springframework.lang.NonNull;
 
+import br.com.attus.pessoa.application.api.PessoaAlteracaoRequest;
 import br.com.attus.pessoa.application.api.PessoaRequest;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -34,6 +35,13 @@ public class Pessoa {
 	private LocalDateTime dataHoraDaUltimaAlteracao;
 
 	public Pessoa(PessoaRequest pessoaRequest) {
+		this.nomeCompleto = pessoaRequest.getNomeCompleto();
+		this.dataDeNascimento = pessoaRequest.getDataDeNascimento();
+		this.endereco = pessoaRequest.getEndereco();
+		this.dataHoraDoCadastro = LocalDateTime.now();
+	}
+
+	public void altera(PessoaAlteracaoRequest pessoaRequest) {
 		this.nomeCompleto = pessoaRequest.getNomeCompleto();
 		this.dataDeNascimento = pessoaRequest.getDataDeNascimento();
 		this.endereco = pessoaRequest.getEndereco();
