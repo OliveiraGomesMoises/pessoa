@@ -3,6 +3,7 @@ package br.com.attus.pessoa.application.api;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
-import lombok.Value;
 
 @RestController
 @RequestMapping("/v1/pessoa")
@@ -29,5 +29,6 @@ public interface PessoaAPI {
 	@GetMapping(value = "/{idPessoa}")
 	@ResponseStatus(code = HttpStatus.OK)
 	PessoaDetalhadoResponse getPessoasAtravesId(@PathVariable UUID idPessoa);
+	
 
 }

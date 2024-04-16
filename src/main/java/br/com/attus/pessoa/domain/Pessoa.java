@@ -3,15 +3,18 @@ package br.com.attus.pessoa.domain;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
-import org.springframework.lang.NonNull;
+
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.attus.pessoa.application.api.PessoaRequest;
 import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,6 +22,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @Entity
+@RequestMapping
 public class Pessoa {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,8 +30,9 @@ public class Pessoa {
 	private UUID idPessoa;
 	@NotBlank
 	private String nomeCompleto;
-	@NonNull
+	@NotNull
 	private LocalDate dataDeNascimento;
+	@Embedded
 	private Endereco endereco;
 
 	private LocalDateTime dataHoraDoCadastro;

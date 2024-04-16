@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.attus.pessoa.application.service.PessoaService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -39,6 +40,14 @@ public class PessoaController implements PessoaAPI {
 		log.info("[inicia] PessoaController - getPessoasAtravesId");
 		return null;
 	}
+
+	
+
+	
+
+	
+
+	
 
 	
 
